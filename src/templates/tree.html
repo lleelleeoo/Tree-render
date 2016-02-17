@@ -1,0 +1,10 @@
+<ul class="nested">
+    <li>
+        <span>
+            <!-- {{ data}} -->
+            <!-- {{ data.unit }} -->
+            {{ data.unit.name }}
+        </span>
+    </li>
+    <li ng-repeat="node in data.childUnits" render-tree data="node" ng-></li>
+</ul>
