@@ -10,11 +10,22 @@
 
     <script src="./js/app.js"></script>
 </head>
-<body>
-    <div ng-controller="tree-controller">
+<body ng-controller="tree-controller">
+    <aside class="tree-nav" >
         <ul>
             <li  render-tree data="data" ng-click="collapse($event)" class="collapsed"></li>
         </ul>
-        <!-- <div tab-view></div> -->
-    </div>
-</bodyul</html>
+    </aside>
+    <section class="content">
+        <div class="table">
+            <header class="employees-header">
+                <h3>Name</h3>
+                <h3>UPSA reporter</h3>
+                <h3>Country</h3>
+                <h3>City</h3>
+            </header>
+            <employees data="table"></employees>
+        </div>
+    </section>
+</body>
+</html>

@@ -9,6 +9,11 @@ ul {
     list-style-type: none;
 }
 
+html,
+html body {
+    height: 100%;
+}
+
 body > header,
 body > footer {
     background-color: #EE2C11;
@@ -51,6 +56,55 @@ li.collapsed ul{
     display: block;
 }
 
-.pew {
+.tree-nav {
+    display: inline-block;
+    padding: 5px;
+    width: 300px;
+
+    height: calc(100% - 60px);
+    overflow: auto;
+}
+
+.tree-nav li {
+    padding: 5px;
+
+    border-left: 1px dotted #bebebe;
+    border-top: 1px dotted #bebebe;
+    border-radius: 5px;
+}
+
+.content {
+    display: inline-block;
+}
+
+.table {
+    display: table;
+    border-radius: 5px;
+    border: 1px dotted #bebebe;
+}
+
+.table>header,
+.table>div {
+    display: table-row;
+}
+
+.table>header {
     background-color: #bebebe;
+    color: #fefefe;
+    font-size: 14px;
+}
+
+.table>header>h3,
+.table>div>span {
+    display: table-cell;
+    padding: 10px;
+}
+
+.content {
+    width: calc(100% - 400px);
+}
+
+li span:hover {
+    border: 1px solid;
+
 }
