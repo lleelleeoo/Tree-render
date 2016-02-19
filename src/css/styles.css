@@ -32,3 +32,25 @@ body > footer {
 .nested {
     padding-left: 15px;
 }
+
+li.collapsed ul{
+    display: none;
+}
+
+.node-name {
+    color: #1A83EC;
+    font-weight: bolder;
+    font-size: 14px;
+    display: block;
+}
+
+.node-owner-name {
+    color: #bebebe;
+    font-weight: lighter;
+    font-size: 11px;
+    display: block;
+}
+
+.pew {
+    background-color: #bebebe;
+}
