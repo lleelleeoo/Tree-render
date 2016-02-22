@@ -13,7 +13,11 @@
 <body ng-controller="tree-controller">
     <aside class="tree-nav" >
         <ul>
-            <li render-tree data="data" ng-click="collapse($event)" class="collapsed"></li>
+            <li render-tree
+                data="data"
+                ng-click="treeListener($event)"
+                class="collapsed"
+            ></li>
         </ul>
     </aside>
     <section class="content">

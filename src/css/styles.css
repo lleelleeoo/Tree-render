@@ -73,6 +73,11 @@ li.collapsed ul{
     border-radius: 5px;
 }
 
+.has-child>.node-name {
+    color: #0059B3;
+    cursor: pointer;
+}
+
 .content {
     display: inline-block;
 
@@ -84,6 +89,7 @@ li.collapsed ul{
     display: table;
     border-radius: 5px;
     border: 1px dotted #bebebe;
+    width: 100%;
 }
 
 .table>header,
@@ -107,16 +113,11 @@ li.collapsed ul{
     width: calc(100% - 400px);
 }
 
-li span:hover {
-    border: 1px solid;
-
-}
-
 ul.pages {
     display: flex;
+    justify-content: center;
     border: 1px dotted #bebebe;
     margin-top: 5px;
-    margin-right: 5px;
     border-radius: 5px;
     cursor: pointer;
 }

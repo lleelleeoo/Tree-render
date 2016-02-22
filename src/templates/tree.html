@@ -1,5 +1,5 @@
 <span class="node-name">{{ data.unit.name }}</span>
 <span class="node-owner-name">{{ data.unitOwner.name }}</span>
 <ul class="nested">
-    <li render-tree ng-repeat="node in data.childUnits" data="node" class="collapsed"></li>
+    <li render-tree ng-repeat="node in data.childUnits" data="node" class="collapsed" ng-class="{'has-child': node.childUnits.length>0}"></li>
 </ul>

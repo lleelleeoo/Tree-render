@@ -47,6 +47,25 @@
             $scope.currentPage = page-1;
         };
 
+        function collapse($event) {
+            if ($event.target.classList.contains('node-name')) {
+                $event.target.parentNode.classList.toggle('collapsed')
+            };
+        };
+
+        function goToName($event) {
+            var name, index, contentsPage;
+            if ($event.target.classList.contains('node-owner-name')) {
+                name = $event.target.innerText;
+                index = $scope.table.findIndex(function(unitOwner, index, array){
+                    if (unitOwner.name == name) {
+                        return true;
+                    };
+                });
+                contentsPage = Math.floor(index/10);
+                setPage(contentsPage+1);
+            };
+        };
 
         $scope.table = [];
         $scope.pages = [];
@@ -58,13 +77,9 @@
             $scope.pages = Array.apply(null, Array(Math.floor($scope.table.length /10))).map(function (_, i) {return i+1});
         });
 
-        $scope.collapse = function($event) {
-            for (var i=0; i < $event.path.length; i++) {
-                if ($event.path[i].tagName == 'LI') {
-                    $event.path[i].classList.toggle('collapsed');
-                    break;
-                };
-            };
+        $scope.treeListener = function($event) {
+            collapse($event);
+            goToName($event);
         };
 
         $scope.pageBarSelect = function ($event) {
