@@ -75,6 +75,9 @@ li.collapsed ul{
 
 .content {
     display: inline-block;
+
+    vertical-align: top;
+    margin: 5px;
 }
 
 .table {
@@ -107,4 +110,28 @@ li.collapsed ul{
 li span:hover {
     border: 1px solid;
 
+}
+
+ul.pages {
+    display: flex;
+    border: 1px dotted #bebebe;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul.pages li {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    font-size: 10px;
+    transition: background-color 0.2s;
+}
+
+ul.pages li:hover,
+ul.pages li.active {
+    background-color: #bebebe;
 }

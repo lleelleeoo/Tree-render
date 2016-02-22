@@ -1,4 +1,4 @@
-<div class="employees" ng-repeat="employee in data">
+<div class="employees" ng-repeat="employee in data" ng-if="$index >= $parent.$parent.currentPage*10 && $index < $parent.$parent.currentPage*10+10">
     <span>{{ employee.name }}</span>
     <span>{{ employee.reporter }}</span>
     <span>{{ employee.country }}</span>

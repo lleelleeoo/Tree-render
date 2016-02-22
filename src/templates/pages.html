@@ -1,0 +1,3 @@
+<ul class="pages">
+    <li ng-repeat="page in pages" ng-if="$index >= currentPage-5 && $index < currentPage+5" ng-click="pageBarSelect($event)">{{ page }}</li>
+</ul>
