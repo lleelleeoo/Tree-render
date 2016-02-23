@@ -56,9 +56,9 @@
         function goToName($event) {
             var name, index, contentsPage;
             if ($event.target.classList.contains('node-owner-name')) {
-                name = $event.target.innerText;
+                $scope.highlightName = $event.target.innerText;
                 index = $scope.table.findIndex(function(unitOwner, index, array){
-                    if (unitOwner.name == name) {
+                    if (unitOwner.name == $scope.highlightName) {
                         return true;
                     };
                 });
@@ -70,10 +70,12 @@
         $scope.table = [];
         $scope.pages = [];
         $scope.currentPage = 0;
+        $scope.highlightName = '';
 
         $http.get('./test-data/OrgChartData.json').success(function(data){
-            $scope.data = data[0];
-            parseData($scope.data);
+            $scope.data = data;
+            $scope.treeToRender = $scope.data;
+            parseData($scope.data[0]);
             $scope.pages = Array.apply(null, Array(Math.floor($scope.table.length /10))).map(function (_, i) {return i+1});
         });
 
@@ -84,7 +86,26 @@
 
         $scope.pageBarSelect = function ($event) {
             setPage($event.target.innerText);
-        }
+        };
+
+        $scope.search = function (keyword) {
+            function recursiveSearch(treeNode) {
+                var isNameContents = treeNode.unitOwner && treeNode.unitOwner.name.toLowerCase().indexOf(keyword.toLowerCase()) + 1,
+                    isUnitContents = treeNode.unit && treeNode.unit.name.toLowerCase().indexOf(keyword.toLowerCase()) + 1
+                if (isUnitContents || isNameContents){
+                    $scope.treeToRender.push(treeNode);
+                };
+                for (var i = treeNode.childUnits.length - 1; i >= 0; i--) {
+                    recursiveSearch(treeNode.childUnits[i]);
+                };
+            }
+            if (keyword.length>=3) {
+                $scope.treeToRender = [];
+                recursiveSearch($scope.data[0]);
+            } else {
+                $scope.treeToRender = $scope.data;
+            }
+        };
 
     });
 })();

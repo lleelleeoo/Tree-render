@@ -136,3 +136,22 @@ ul.pages li:hover,
 ul.pages li.active {
     background-color: #bebebe;
 }
+
+.search {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.employees,
+.tree-node>span {
+    transition: background-color 0.2s;
+}
+
+.employees:hover,
+.tree-node:hover>span,
+.employees.selected {
+    background-color: #befebe;
+}

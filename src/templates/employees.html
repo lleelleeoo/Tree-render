@@ -1,4 +1,8 @@
-<div class="employees" ng-repeat="employee in data" ng-if="$index >= $parent.$parent.currentPage*10 && $index < $parent.$parent.currentPage*10+10">
+<div class="employees"
+     ng-repeat="employee in data"
+     ng-if="$index >= $parent.$parent.currentPage*10 && $index < $parent.$parent.currentPage*10+10"
+     ng-class="{selected: employee.name==$parent.highlightName}"
+     >
     <span>{{ employee.name }}</span>
     <span>{{ employee.reporter }}</span>
     <span>{{ employee.country }}</span>

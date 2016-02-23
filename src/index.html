@@ -6,17 +6,19 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <!-- <script src="https://code.angularjs.org/1.4.5/angular.min.js"></script> -->
-
     <script src="./js/app.js"></script>
 </head>
 <body ng-controller="tree-controller">
     <aside class="tree-nav" >
+        <input type="search" class="search" placeholder="search" ng-model="keyword" ng-change="search(keyword)"></input>
+        <span>{{ keyword }}</span>
         <ul>
             <li render-tree
                 data="data"
+                ng-repeat="data in treeToRender"
                 ng-click="treeListener($event)"
                 class="collapsed"
+                ng-class="{'has-child': data.childUnits.length>0}"
             ></li>
         </ul>
     </aside>
